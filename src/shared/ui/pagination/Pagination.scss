@@ -1,0 +1,57 @@
+@use "../../assets/styles/variables.scss" as *;
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 0px;
+
+  &__actions {
+    display: flex;
+    gap: 16px;
+
+    &-inner {
+      display: flex;
+      gap: 8px;
+    }
+  }
+
+  &__info {
+    font-size: 15px;
+    color: $text-secondary;
+
+    &-highlight {
+      font-size: 17px;
+      color: $text-primary;
+    }
+  }
+
+  .button {
+    &.pagination {
+      &__button {
+        width: 30px;
+        height: 30px;
+        padding: 0px;
+        font-size: 14px;
+        border-radius: 4px;
+
+        &.active {
+          background-color: $color-accent-light;
+        }
+      }
+
+      &__icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        outline: none;
+
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+}

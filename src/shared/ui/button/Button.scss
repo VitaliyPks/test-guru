@@ -1,0 +1,51 @@
+@use "../../assets/styles/variables.scss" as *;
+
+.button {
+  cursor: pointer;
+  width: auto;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  padding: 10px 20px;
+  color: $text-inverse;
+  background-color: $color-accent;
+  text-align: center;
+
+  &:hover {
+    background-color: $color-accent-light;
+  }
+
+  &:active {
+    background-color: $color-accent;
+  }
+
+  &.error {
+    background-color: $color-danger;
+
+    &:hover {
+      background-color: $color-danger-light;
+    }
+  }
+
+  &.transparent {
+    color: $text-secondary;
+    background-color: transparent;
+    outline: 1px solid $border-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $color-accent-light;
+    }
+
+    &:disabled {
+      background-color: transparent;
+      outline: none;
+      background-color: $color-accent-disabled;
+    }
+  }
+
+  &:disabled {
+    cursor: default;
+    background-color: $color-accent-disabled;
+  }
+}

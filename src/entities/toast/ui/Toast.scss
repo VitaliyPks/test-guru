@@ -1,0 +1,74 @@
+@use "../../../shared/assets/styles/variables.scss" as *;
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 320px;
+  max-width: 480px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  animation: slideIn 0.3s ease;
+  backdrop-filter: blur(8px);
+  color: $text-inverse;
+  border: 1px solid $border-secondary;
+
+  &--success {
+    background-color: $color-accent-light;
+  }
+
+  &--error {
+    background-color: $color-danger;
+  }
+
+  &--warning {
+    background-color: $color-danger-light;
+  }
+
+  &--info {
+    background-color: $color-accent-disabled;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__message {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  &__close {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

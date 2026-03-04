@@ -1,0 +1,17 @@
+@use "../../../shared/assets/styles/variables.scss" as *;
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 30px 26px calc(30px + 90px);
+  border-radius: 10px;
+  background-color: $bg-tertiary;
+
+  &__title {
+    position: absolute;
+    left: 30px;
+    font-size: 24px;
+  }
+}

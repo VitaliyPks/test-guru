@@ -1,0 +1,134 @@
+@use "../../../shared/assets/styles/variables.scss" as *;
+
+.product-table {
+  width: 100%;
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  &__checkbox {
+    width: 58px !important;
+    padding: 25px 18px;
+    margin-left: -3px;
+    border-left: 3px solid transparent;
+
+    &.active {
+      border-left: 3px solid $color-accent-secondary;
+    }
+  }
+
+  &__thead {
+    width: 100%;
+    color: $text-secondary;
+    font-weight: 600;
+
+    &-row {
+      width: 100%;
+    }
+
+    &-title {
+      cursor: pointer;
+      text-align: start;
+      max-width: 25% !important;
+      width: 100%;
+    }
+
+    &-brand {
+      cursor: pointer;
+    }
+
+    &-rating {
+      cursor: pointer;
+    }
+
+    &-price {
+      cursor: pointer;
+    }
+  }
+
+  &__tbody {
+    td {
+      text-align: center;
+      max-width: 15%;
+      width: 100%;
+    }
+
+    &-brand {
+      font-weight: 600;
+    }
+
+    &-rating {
+      &-text {
+        &.bad-rating {
+          color: $color-danger;
+        }
+      }
+    }
+
+    &-price {
+      &-decimal {
+        color: $text-secondary;
+      }
+    }
+
+    &-row {
+      td {
+        border-top: 1px solid $border-primary;
+        border-bottom: 1px solid $border-primary;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    &-button {
+      &.button {
+        display: flex;
+        padding: 1.5px 14px;
+        border-radius: 23px;
+      }
+    }
+  }
+
+  &__product {
+    display: flex;
+    align-items: center;
+    text-align: initial;
+    gap: 18px;
+
+    &-image {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      outline: 1px solid $border-secondary;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    &-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    &-category {
+      font-size: 12px;
+      color: $text-secondary;
+    }
+  }
+
+  &__empty {
+    margin: 50px auto;
+    text-align: center;
+  }
+}
