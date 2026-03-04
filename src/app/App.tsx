@@ -40,7 +40,7 @@ const AppContent: React.FC = () => {
 const App = () => {
   return (
     <ReduxProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="test-guru">
         <AppContent />
       </BrowserRouter>
     </ReduxProvider>
