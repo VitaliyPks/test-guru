@@ -131,4 +131,23 @@
     margin: 50px auto;
     text-align: center;
   }
+
+  &__loading {
+    margin: 40px auto;
+
+    &-icon {
+      animation: 1s infinite loading;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

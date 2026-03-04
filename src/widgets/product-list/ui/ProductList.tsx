@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 import {
   fetchProducts,
+  resetProducts,
   setPage,
   setSearchQuery,
   setSort,
@@ -12,12 +13,12 @@ import { useAppDispatch, useAppSelector } from "@shared/redux";
 import { ReactComponent as ArrowsIcon } from "@shared/assets/icons/ArrowsClockwise.svg";
 import { ReactComponent as PlusIcon } from "@shared/assets/icons/PlusCircle.svg";
 
-import { ProductTable } from "@widgets/product-table/ui/ProductTable";
-
+import { AddProductModal } from "@features/add-product";
 import { SearchBar } from "@features/search-bar";
 
+import { ProductTable } from "@widgets/product-table";
+
 import "./ProductList.scss";
-import { AddProductModal } from "@features/add-product";
 
 const ITEMS_PER_PAGE = 20;
 
@@ -57,7 +58,7 @@ export const ProductList = () => {
             order: sortOrder,
           }),
         ),
-      250,
+      300,
     );
 
     return () => clearTimeout(timer);
@@ -74,6 +75,10 @@ export const ProductList = () => {
   const handlePageChange = (page: number) => {
     dispatch(setPage(page));
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleReset = () => {
+    dispatch(resetProducts());
   };
 
   if (error) {
@@ -107,12 +112,18 @@ export const ProductList = () => {
         <div className={`${base}__header`}>
           <h2 className={`${base}__header-title`}>Все позиции</h2>
           <div className={`${base}__actions`}>
-            <Button className={`${base}__button-refresh`} mode="transparent">
+            <Button
+              onClick={handleReset}
+              className={`${base}__button-refresh`}
+              mode="transparent"
+              disabled={loading}
+            >
               <ArrowsIcon />
             </Button>
             <Button
               className={`${base}__button-add`}
               onClick={() => setIsAddModalOpen(true)}
+              disabled={loading}
             >
               <PlusIcon />
               Добавить

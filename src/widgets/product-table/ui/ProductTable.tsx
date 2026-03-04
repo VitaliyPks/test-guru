@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 
 import { ReactComponent as DotsThreeIcon } from "@shared/assets/icons/dots-three-circle-icon.svg";
+import { ReactComponent as LoadingIcon } from "@shared/assets/icons/loading-icon.svg";
 import { ReactComponent as PlusIcon } from "@shared/assets/icons/plus-icon.svg";
 import { IProduct, TSortField } from "@shared/types";
 import { useAppDispatch } from "@shared/redux";
@@ -40,6 +41,14 @@ export const ProductTable: React.FC<IProductTableProps> = ({
   const handleSort = (field: TSortField) => {
     onSort(field);
   };
+
+  if (loading && products.length === 0) {
+    return (
+      <div className={`${base}__loading`}>
+        <LoadingIcon className={`${base}__loading-icon`} />
+      </div>
+    );
+  }
 
   if (products.length === 0) {
     return <div className={`${base}__empty`}>Товары не найдены</div>;
